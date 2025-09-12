@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Ferramentas PDF Online — CuboPDF{% endblock %}
+{% block content %}
+<section class="hero">
+  <h1>Ferramentas de PDF online</h1>
+  <p>Gratuito, sem cadastro — limite de {{ max_mb }} MB por arquivo.</p>
+</section>
+<section class="grid">
+  <a class="card" href="{{ url_for('merge') }}"><h3>Juntar PDF</h3><p>Combine múltiplos PDFs em um só.</p></a>
+  <a class="card" href="{{ url_for('split') }}"><h3>Dividir PDF</h3><p>Extraia páginas ou intervalos.</p></a>
+  <a class="card" href="{{ url_for('remove') }}"><h3>Remover páginas</h3><p>Apague páginas indesejadas.</p></a>
+  <a class="card" href="{{ url_for('compress') }}"><h3>Comprimir</h3><p>Reduza o tamanho do arquivo.</p></a>
+  <a class="card" href="{{ url_for('pdf2img') }}"><h3>PDF → Imagem</h3><p>Exporte páginas como PNG/JPG.</p></a>
+  <a class="card" href="{{ url_for('img2pdf_route') }}"><h3>Imagem → PDF</h3><p>Converta JPG/PNG em PDF.</p></a>
+  <a class="card" href="{{ url_for('pdf2word') }}"><h3>PDF → Word</h3><p>Extraia texto para DOCX.</p></a>
+  <a class="card" href="{{ url_for('word2pdf') }}"><h3>Word → PDF</h3><p>Converta DOCX em PDF.</p></a>
+</section>
+{% endblock %}

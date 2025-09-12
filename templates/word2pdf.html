@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Word → PDF — CuboPDF{% endblock %}
+{% block content %}
+<h1>Word → PDF</h1>
+
+<form action="" method="post" enctype="multipart/form-data" class="form">
+  <input type="file" name="docx" required>
+  <button type="submit">Converter</button>
+</form>
+
+{% endblock %}

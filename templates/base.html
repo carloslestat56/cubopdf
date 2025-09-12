@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}CuboPDF — Ferramentas PDF Online{% endblock %}</title>
+  <meta name="description" content="{% block description %}Ferramentas online gratuitas para editar, converter e organizar PDFs.{% endblock %}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <a href="{{ url_for('index') }}" class="logo">Cubo<span>PDF</span></a>
+      <nav class="menu">
+        <a href="{{ url_for('merge') }}">Juntar</a>
+        <a href="{{ url_for('split') }}">Dividir</a>
+        <a href="{{ url_for('remove') }}">Remover</a>
+        <a href="{{ url_for('compress') }}">Comprimir</a>
+        <a href="{{ url_for('pdf2img') }}">PDF→Imagem</a>
+        <a href="{{ url_for('img2pdf_route') }}">Imagem→PDF</a>
+        <a href="{{ url_for('pdf2word') }}">PDF→Word</a>
+        <a href="{{ url_for('word2pdf') }}">Word→PDF</a>
+      </nav>
+    </div>
+    </header>
+
+  <!-- Banner global topo -->
+  <div class="ad-banner container">[espaco anuncio 728x90]</div>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+
+        <!-- Banner global rodapé -->
+       <div class="ad-banner">[espaco anuncio 728x90]</div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <h4>Sobre</h4>
+          <p style="text-align: justify;">
+Oferecer ferramentas simples e gratuitas para editar e converter PDFs com rapidez, segurança e praticidade.
+</p>
+
+        </div>
+        <div class="footer-links">
+          <h4>Links úteis</h4>
+          <ul>
+            <li><a href="#">Política de Privacidade</a></li>
+            <li><a href="#">Termos de Uso</a></li>
+            <li><a href="#">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h4>Redes sociais</h4>
+          <p>[Em breve redes sociais]</p>
+        </div>
+      </div>
+      <p class="footer-copy">© 2025 Cubo Pdf — rápido, gratuito e simples.</p>
+
+    </div>
+  </footer>
+</body>
+</html>
+

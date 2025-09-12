@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}PDF → Imagem — CuboPDF{% endblock %}
+{% block content %}
+<h1>PDF → Imagem</h1>
+
+<form action="" method="post" enctype="multipart/form-data" class="form">
+  <input type="file" name="pdf" required><select name="format"><option value="png">PNG</option><option value="jpg">JPG</option></select>
+  <button type="submit">Converter</button>
+</form>
+
+{% endblock %}
