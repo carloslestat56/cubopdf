@@ -6,6 +6,8 @@
   <title>{% block title %}CuboPDF — Ferramentas PDF Online{% endblock %}</title>
   <meta name="description" content="{% block description %}Ferramentas online gratuitas para editar, converter e organizar PDFs.{% endblock %}">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8581269916634324"
+     crossorigin="anonymous"></script>
 </head>
 <body>
   <header class="navbar">
@@ -24,24 +26,48 @@
     </div>
     </header>
 
-  <!-- Banner global topo -->
-  <div class="ad-banner container"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8581269916634324"
-     crossorigin="anonymous"></script></div>
+<!-- Banner global topo -->
+<div class="ad-banner container" style="text-align:center; margin: 15px 0;">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8581269916634324"
+     crossorigin="anonymous"></script>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-8581269916634324"
+       data-ad-slot="1234567890"   <!-- substitua pelo seu ID de slot -->
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
 
-  <main class="container">
-    {% block content %}{% endblock %}
+<main class="container">
+  {% block content %}{% endblock %}
+</main>
 
-        <!-- Banner global rodapé -->
-       <div class="ad-banner">[espaco anuncio 728x90]</div>
+<!-- Banner global rodapé -->
+<div class="ad-banner container" style="text-align:center; margin: 15px 0;">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8581269916634324"
+     crossorigin="anonymous"></script>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-8581269916634324"
+       data-ad-slot="9876543210"   <!-- substitua pelo seu ID de slot -->
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-about">
-          <h4>Sobre</h4>
-          <p style="text-align: justify;">
-Oferecer ferramentas simples e gratuitas para editar e converter PDFs com rapidez, segurança e praticidade.
-</p>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <h4>Sobre</h4>
+        <p style="text-align: justify;">
+          Oferecer ferramentas simples e gratuitas para editar e converter PDFs com rapidez, segurança e praticidade.
+        </p>
 
         </div>
         <div class="footer-links">
