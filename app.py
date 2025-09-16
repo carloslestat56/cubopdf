@@ -65,6 +65,11 @@ def parse_ranges(ranges_str, num_pages):
 def politica():
     return render_template("politica.html")
 
+#------------Termos---------
+@app.route("/termos-de-uso")
+def termos():
+    return render_template("termos.html")
+    
 # ---------- Home ----------
 @app.route("/")
 def index():
