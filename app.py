@@ -8,6 +8,7 @@ from PIL import Image
 import img2pdf
 import pdfplumber
 from docx import Document
+from flask import Response
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "change-me-secret")
