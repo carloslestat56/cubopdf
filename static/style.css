@@ -16,5 +16,15 @@ border:1px solid rgba(255,255,255,0.06);background:#07101a;color:var(--text)}
 color:white;font-weight:700;cursor:pointer}
 .footer{background:#0f1724;padding:10px 0;margin-top:150px}
 .footer-copy{text-align:center;color:var(--muted);margin-top:10px;font-size:14px}
-.ad-banner{margin:20px auto;text-align:center;min-height:90px;background:rgba(255,255,255,0.03);
-border:1px dashed rgba(255,255,255,0.06);border-radius:8px;color:#9aa4b2;display:flex;align-items:center;justify-content:center}
+.ad-banner {
+  max-width: 728px;   /* largura do banner */
+  height: 90px;       /* altura do banner */
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: rgba(255,255,255,0.03);
+  border: 1px dashed rgba(255,255,255,0.06);
+  border-radius: 8px;
+  color: #9aa4b2;
