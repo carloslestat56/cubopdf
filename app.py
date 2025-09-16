@@ -60,6 +60,11 @@ def parse_ranges(ranges_str, num_pages):
                 continue
     return sorted(pages)
 
+#------------Politica-------
+@app.route("/politica-de-privacidade")
+def politica():
+    return render_template("politica.html")
+
 # ---------- Home ----------
 @app.route("/")
 def index():
