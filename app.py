@@ -10,6 +10,12 @@ import pdfplumber
 from docx import Document
 
 app = Flask(__name__)
+
+# rota para servir sitemap direto da pasta static
+@app.route("/sitemap.xml")
+def sitemap():
+    return app.send_static_file("sitemap.xml")
+    
 app.secret_key = os.environ.get("SECRET_KEY", "change-me-secret")
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 UPLOAD_FOLDER = os.path.join(BASE_DIR, "uploads")
