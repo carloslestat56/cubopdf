@@ -8,7 +8,6 @@ from PIL import Image
 import img2pdf
 import pdfplumber
 from docx import Document
-from flask import Response
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "change-me-secret")
@@ -304,11 +303,6 @@ def word2pdf():
                 return redirect(url_for("word2pdf"))
         return send_file(out_path, as_attachment=True, download_name="cubopdf_word.pdf")
     return render_template("word2pdf.html")
-
-# sitemap
-@app.route("/sitemap.xml")
-def sitemap():
-    return send_from_directory(".", "sitemap.xml")
 
 # Clean uploads/output (utility route - not exposed in production)
 @app.route("/_cleanup", methods=["POST"])
