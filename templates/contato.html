@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Contato — CuboPDF{% endblock %}
+
+{% block content %}
+<h1>Fale Conosco</h1>
+<p>Use o formulário abaixo para enviar sua mensagem. Retornaremos o mais rápido possível.</p>
+
+<form id="contact-form" class="form">
+  <input type="text" name="nome" placeholder="Seu nome" required>
+  <input type="email" name="email" placeholder="Seu e-mail" required>
+  <input type="text" name="assunto" placeholder="Assunto" required>
+  <textarea name="mensagem" placeholder="Sua mensagem" rows="5" required></textarea>
+
+  <label style="font-size:14px; display:flex; align-items:center; gap:8px;">
+    <input type="checkbox" required>
+    Aceito os <a href="{{ url_for('termos') }}" target="_blank">Termos & Condições</a> e a 
+    <a href="{{ url_for('politica') }}" target="_blank">Política de Privacidade</a>.
+  </label>
+
+  <button type="submit">Enviar mensagem</button>
+</form>
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("4e3JHG6b1H4lCmiba"); // coloque seu ID do EmailJS
+  })();
+
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    emailjs.sendForm('service_mz69ren', 'template_fk336tl', this)
+      .then(function() {
+        alert("Mensagem enviada com sucesso!");
+        document.getElementById('contact-form').reset();
+      }, function(error) {
+        alert("Erro ao enviar: " + JSON.stringify(error));
+      });
+  });
+</script>
+{% endblock %}
