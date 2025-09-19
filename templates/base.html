@@ -41,55 +41,59 @@
         <a href="{{ url_for('word2pdf') }}">Word→PDF</a>
       </nav>
     </div>
-    </header>
+  </header>
 
- <!-- Banner topo -->
-{% if show_ads %}
-<div class="ad-banner">
-  <!-- código do anúncio topo -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX"
-    crossorigin="anonymous"></script>
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-XXXXXXXXXX"
-       data-ad-slot="1234567890"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-{% endif %}
+  <!-- Banner topo -->
+  {% if show_ads %}
+  <div class="ad-banner">
+    <!-- código do anúncio topo -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX"
+      crossorigin="anonymous"></script>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXX"
+         data-ad-slot="1234567890"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  {% endif %}
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
 
   <!-- Banner rodapé -->
- {% if show_ads %}
-<div class="ad-banner">
-  <!-- código do anúncio rodapé -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX"
-    crossorigin="anonymous"></script>
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-XXXXXXXXXX"
-       data-ad-slot="0987654321"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-{% endif %}
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-about">
-        <h4>Sobre</h4>
-        <p style="text-align: justify;">
-          Oferecer ferramentas simples e gratuitas para editar e converter PDFs com rapidez, segurança e praticidade.
-        </p>
+  {% if show_ads %}
+  <div class="ad-banner">
+    <!-- código do anúncio rodapé -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX"
+      crossorigin="anonymous"></script>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXX"
+         data-ad-slot="0987654321"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  {% endif %}
 
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <h4>Sobre</h4>
+          <p style="text-align: justify;">
+            Oferecer ferramentas simples e gratuitas para editar e converter PDFs com rapidez, segurança e praticidade.
+          </p>
         </div>
         <div class="footer-links">
           <h4>Links úteis</h4>
           <ul>
             <li><a href="{{ url_for('politica') }}">Política de Privacidade</a></li>
             <li><a href="{{ url_for('termos') }}">Termos de Uso</a></li>
-            <li><a href="#">Contato</a></li>
+            <li><a href="{{ url_for('contato') }}">Contato</a></li>
           </ul>
         </div>
         <div class="footer-social">
@@ -98,9 +102,6 @@
         </div>
       </div>
       <p class="footer-copy">© 2025 Cubo Pdf — rápido, gratuito e simples.</p>
-
     </div>
   </footer>
 </body>
-</html>
-
