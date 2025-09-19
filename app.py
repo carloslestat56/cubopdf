@@ -63,22 +63,22 @@ def parse_ranges(ranges_str, num_pages):
 #------------Politica-------
 @app.route("/politica-de-privacidade")
 def politica():
-    return render_template("politica.html")
+    return render_template("politica.html" show_ads=False)
 
 #------------Termos---------
 @app.route("/termos-de-uso")
 def termos():
-    return render_template("termos.html")
+    return render_template("termos.html", show_ads=False)
 
 # --------- Contato ---------
 @app.route("/contato")
 def contato():
-    return render_template("contato.html")
+    return render_template("contato.html" show_ads=False)
     
 # ---------- Home ----------
 @app.route("/")
 def index():
-    return render_template("index.html", max_mb=MAX_CONTENT_LENGTH_MB)
+    return render_template("index.html", max_mb=MAX_CONTENT_LENGTH_MB, show_ads=True)
 
 # ---------- MERGE ----------
 @app.route("/juntar-pdf", methods=["GET", "POST"])
@@ -102,7 +102,7 @@ def merge():
             merger.write(out)
         merger.close()
         return send_file(out_path, as_attachment=True, download_name="cubopdf_merged.pdf")
-    return render_template("merge.html")
+    return render_template("merge.html"show_ads=True)
 
 # ---------- SPLIT ----------
 @app.route("/dividir-pdf", methods=["GET", "POST"])
@@ -127,7 +127,7 @@ def split():
         with open(out_path, "wb") as out:
             writer.write(out)
         return send_file(out_path, as_attachment=True, download_name="cubopdf_extracted.pdf")
-    return render_template("split.html")
+    return render_template("split.html"show_ads=True)
 
 # ---------- REMOVE ----------
 @app.route("/remover-paginas", methods=["GET", "POST"])
@@ -150,7 +150,7 @@ def remove():
         with open(out_path, "wb") as out:
             writer.write(out)
         return send_file(out_path, as_attachment=True, download_name="cubopdf_removed.pdf")
-    return render_template("remove.html")
+    return render_template("remove.html"show_ads=True)
 
 # ---------- COMPRESS ----------
 def compress_with_ghostscript(input_pdf, output_pdf, quality="ebook"):
@@ -196,7 +196,7 @@ def compress():
                 flash("Falha ao comprimir PDF. Instale Ghostscript para melhor compressão.")
                 return redirect(url_for("compress"))
         return send_file(out_path, as_attachment=True, download_name="cubopdf_compressed.pdf")
-    return render_template("compress.html")
+    return render_template("compress.html"show_ads=True)
 
 # ---------- PDF -> IMAGE ----------
 @app.route("/pdf-para-imagem", methods=["GET", "POST"])
@@ -228,7 +228,7 @@ def pdf2img():
                     img.save(buf, format=fmt.upper())
                     zf.writestr(f"page{idx}.{fmt}", buf.getvalue())
             return send_file(zip_name, as_attachment=True, download_name="cubopdf_pages.zip")
-    return render_template("pdf2img.html")
+    return render_template("pdf2img.html"show_ads=True)
 
 # ---------- IMAGE -> PDF ----------
 @app.route("/imagem-para-pdf", methods=["GET", "POST"])
@@ -248,7 +248,7 @@ def img2pdf_route():
         with open(out_path, "wb") as f_out:
             f_out.write(img2pdf.convert(img_paths))
         return send_file(out_path, as_attachment=True, download_name="cubopdf_images.pdf")
-    return render_template("img2pdf.html")
+    return render_template("img2pdf.html"show_ads=True)
 
 # ---------- PDF -> WORD ----------
 @app.route("/pdf-para-word", methods=["GET", "POST"])
@@ -273,7 +273,7 @@ def pdf2word():
             flash("Falha ao extrair texto do PDF.")
             return redirect(url_for("pdf2word"))
         return send_file(out_path, as_attachment=True, download_name="cubopdf_converted.docx")
-    return render_template("pdf2word.html")
+    return render_template("pdf2word.html"show_ads=True)
 
 # ---------- WORD -> PDF ----------
 def try_docx2pdf(input_path, output_path):
@@ -323,7 +323,7 @@ def word2pdf():
                 flash("Falha na conversão. Instale MS Word ou LibreOffice.")
                 return redirect(url_for("word2pdf"))
         return send_file(out_path, as_attachment=True, download_name="cubopdf_word.pdf")
-    return render_template("word2pdf.html")
+    return render_template("word2pdf.html"show_ads=True)
 
 # Clean uploads/output (utility route - not exposed in production)
 @app.route("/_cleanup", methods=["POST"])
