@@ -69,6 +69,11 @@ def politica():
 @app.route("/termos-de-uso")
 def termos():
     return render_template("termos.html")
+
+# --------- Contato ---------
+@app.route("/contato")
+def contato():
+    return render_template("contato.html")
     
 # ---------- Home ----------
 @app.route("/")
